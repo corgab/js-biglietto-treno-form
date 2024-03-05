@@ -1,36 +1,6 @@
-// //prezzo km e età
-
-// const prezzoPerKm = 0.21
-// const etaUtente = prompt("Insterisci la tua età")
-// let kmTotali = prompt("Inserisci i Km") * prezzoPerKm
-
-// //sconto
-
-// const anni18 = 20 / 100
-// const anni65 = 40 / 100
-
-// //approssimazione
-
-// kmTotali = Math.floor(kmTotali)
-
-// //nosconto
-
-// if(etaUtente < 19){
-//     let pagamento = kmTotali * anni18
-
-//     console.log('Il prezzo da pagare è ' + pagamento )
-// }   else if(etaUtente > 64){
-//     let pagamento = kmTotali * anni65
-
-//     console.log('Il prezzo da pagare è ' + pagamento)
-// }   else {
-//     console.log(kmTotali)
-// }
-
-
 //da inserisci km, da eta chiedere fascia eta
 
-const prezzoPerKm = 0.21
+const prezzoPerKm = 0.21; // float
 const inputEtaElement = document.getElementById("eta")
 const inputKmElement = document.getElementById("km")
 const SubmitElement = document.getElementById("submit")
@@ -42,29 +12,32 @@ const scontoMinorenne = 0.2
 
 
 
-let eta, km = ''
+let age, km = ''
 let prezzoTotale = 0
+
 //mandare le risposte con bottone in console
 
 SubmitElement.addEventListener('click', function(){
-    //console.log('click sul bottone')
 
-    km = inputKmElement.value    //string
-    eta = inputEtaElement.value    //string
+    km = parseFloat(inputKmElement.value)    //float
+    age = inputEtaElement.value    //string
 
     prezzoTotale = km * prezzoPerKm //number
 
-    if(eta = 'Minorenne'){
+    if(age == 'minorenne'){
+    //    console.log('scelta minorenne')
         prezzoTotale = prezzoTotale - scontoMinorenne
-    } else if(eta = 'Maggiorenne'){
+        console.log(prezzoTotale)
+
+    } else if(age == 'maggiorenne'){
         prezzoTotale = prezzoTotale - scontoOver
+        console.log(prezzoTotale)
+
     }
     else{
-        prezzoTotale
+        console.log(prezzoTotale)
     }
     
-
-    console.log(km, eta, prezzoTotale)
 })
 
 
