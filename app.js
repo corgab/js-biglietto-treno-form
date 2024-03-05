@@ -7,38 +7,41 @@ const SubmitElement = document.getElementById("submit")
 
 //sconti
 
-const scontoOver = 0.4
-const scontoMinorenne = 0.2
+const scontoOver = 0.40
+const scontoMinorenne = 0.20
 
 
 
 let age, km = ''
 let prezzoTotale = 0
 
-//mandare le risposte con bottone in console
+//mandare le risposte
 
 SubmitElement.addEventListener('click', function(){
 
     km = parseFloat(inputKmElement.value)    //float
-    age = inputEtaElement.value    //string
+    age= inputEtaElement.value   //string
+
 
     prezzoTotale = km * prezzoPerKm //number
 
     if(age == 'minorenne'){
-    //    console.log('scelta minorenne')
-        prezzoTotale = prezzoTotale - scontoMinorenne
-        console.log(prezzoTotale)
+        prezzoTotale = prezzoTotale * scontoMinorenne
+        document.getElementById('prezzoTotale').innerHTML = prezzoTotale.toFixed(2)
+        document.getElementById('etapasseggero').innerHTML = "Biglietto Minorenne"
+
 
     } else if(age == 'maggiorenne'){
         prezzoTotale = prezzoTotale - scontoOver
-        console.log(prezzoTotale)
+        document.getElementById('prezzoTotale').innerHTML = prezzoTotale.toFixed(2)
+        document.getElementById('etapasseggero').innerHTML = "Biglietto Maggiorenne"
 
     }
     else{
-        console.log(prezzoTotale)
+        document.getElementById('prezzoTotale').innerHTML = prezzoTotale.toFixed(2)
     }
-    
 })
+
 
 
 
